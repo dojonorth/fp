@@ -58,19 +58,30 @@ for (var i = 0; i<50; i++) {
 
 ## Functional looping
 
-Instead, use map, filter and reduce to transform your arrays
+Instead, use map, filter and reduce to transform your arrays:
 ```
 var array = [1,2,3,4,5,6];
-var doubled = array.map(x => x*2);
-var evens = array.filter(x => x % 2 == 0)
-var sumOfEvens = evens.reduce((acc, x) => acc + x, 0)
+var doubled = array.map(function(x) { return x*2 });
+var evens = array.filter(function(x) { return x % 2 == 0; });
+var sumOfEvens = evens.reduce(
+  function(acc, x) { return acc + x },
+  0
+);
 ```
 
 
+## Side effects
+
+It really boils down to avoiding side effects.
+- no throwing of exceptions
+- no mutation
+- no printing/logging
 
 ## Error handling
 
 <iframe src="//giphy.com/embed/13HgwGsXF0aiGY" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/13HgwGsXF0aiGY">via GIPHY</a></p>
 
+
+## Functional error handling
 
 <iframe src="//giphy.com/embed/fXm3axbRDLBII" width="480" height="202" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/the-matrix-keanu-reeves-neo-fXm3axbRDLBII">via GIPHY</a></p>
