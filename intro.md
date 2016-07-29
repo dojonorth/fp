@@ -5,7 +5,7 @@
 
 ## Why this topic?
 
-- We've done a few Dojos which are underpinned by functional thinking
+- We've done a few Dojos which were underpinned by functional thinking
   - MapReduce
   - Event stores
   - React and Redux
@@ -28,17 +28,17 @@
 
 Functions should always return the same output for a given input.
 ```
-var someValue = 1;
+var someValue = 0;
 
-function multiplyIt(number) {
-  return someValue * number;
+function doSomething(number) {
+  someValue += number;
+  return someValue;
 }
 
-console.log(multiplyIt(2));
+console.log(doSomething(2));
 // 2
 
-someValue += 1;
-console.log(multiplyIt(2));
+console.log(doSomething(2));
 // 4
 ```
 
@@ -56,7 +56,7 @@ for (var i = 0; i<50; i++) {
 ```
 
 
-## Functional looping
+## Functional 'looping'
 
 Instead, use map, filter and reduce to transform your arrays:
 ```
@@ -70,12 +70,27 @@ var sumOfEvens = evens.reduce(
 ```
 
 
+## New fangled JavaScript
+
+ECMAScript 6 introduces `const` and a more terse lambda syntax:
+```
+const array = [1,2,3,4,5,6];
+const doubled = array.map(x => x*2);
+const evens = array.filter(x => x % 2 == 0);
+const sumOfEvens = evens.reduce(
+  (acc, x) => acc + x,
+  0
+);
+```
+
+
 ## Side effects
 
 It really boils down to avoiding side effects.
 - no throwing of exceptions
 - no mutation
 - no printing/logging
+
 
 ## Error handling
 
@@ -84,4 +99,11 @@ It really boils down to avoiding side effects.
 
 ## Functional error handling
 
+You have probably heard about Monads...
+
 <iframe src="//giphy.com/embed/fXm3axbRDLBII" width="480" height="202" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/the-matrix-keanu-reeves-neo-fXm3axbRDLBII">via GIPHY</a></p>
+
+
+## Railway oriented programming
+
+<img src="http://fsharpforfunandprofit.com/assets/img/Recipe_Railway_Transparent.png" />
